@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <div class="scores"><a href="highscores.html">View Highscores</a></div>
+    <!-- <div class="scores"><a href="highscores.html">View Highscores</a></div> -->
     <title>Code Quiz Challange</title>
 </head>
 <body> 
     <main class="container">    
         <div id= "homescreen" class="flex-column flex-center"> 
            <h1>Start Game</h1> 
-           <a href="game" class="btn">play</a>
-           <a href="highscores" id="highscore-btn"
+           <button id="startbutton" class="btn" type="button">play</button> 
+           <a href="highscores.html" id="highscore-btn"            
             class="btn">High Score</a>
+            <div id= "question-box"></div>
             <p> timer: <span id="time"></span></p>
          </div>    
         </div>

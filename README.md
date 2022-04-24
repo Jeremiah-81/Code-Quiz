@@ -1,20 +1,4 @@
 # Code-Quiz
-var watcher = document.querySelector(".watch");
-var kalEl = document.getElementById("kal")
-var timeLeft = 60;
-
-function startTime() {
-   var timerInterval = setInterval(function() {
-      timeLeft--;
-      watcher.textContent = timeLeft + "remaining seconds.";
-
-      if (timeLeft === 0) {
-         clearInterval(timerInterval);
-         gameUpdate();
-      }
-   }, 1000);
- }
- startTime();
 
 
 
