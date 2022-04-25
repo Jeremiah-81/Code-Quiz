@@ -81,3 +81,22 @@ h2 {
 #highscore-btn:hover {
   box-shadow: 0 0.4rem 1.4rem 0 #3c3c3c;
 }
+
+.rightanswer {
+  background: linear-gradient(45deg, rgba(0, 0, 255) 0%, rgb(0, 255, 255) 100%);
+}
+
+
+.wronganswer {
+  background: linear-gradient(45deg, rgba(255, 0, 0) 0%, rgb(255, 0, 64) 100%);
+}
+
+
+
+
+
+@media screen and (max-width: 500px) {
+  .decisions {
+    min-width: 30rem;
+  }
+}
