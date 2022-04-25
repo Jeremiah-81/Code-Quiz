@@ -9,7 +9,7 @@ var queryArray = [
       "style:bold;",
       "font:bold;",
     ],
-    answer: "font-weight:bold",
+    answer: "font-weight:bold;",
   },
   {
     question:
@@ -65,10 +65,10 @@ function gameStart() {
   console.log ("gamestarted")
   codeQuestion = 0;
   score = 0;
-  var questionBox = document.getElementById("question-box");
   startTime();
   setupquestion(codeQuestion, questionBox);
 }
+var questionBox = document.getElementById("question-box");
 
 function setupquestion(qNumber, qContainer) {
   qContainer.innerHTML = "";
@@ -115,22 +115,34 @@ function reviewAnswer(event) {
     time.append(rightAnswer);
   }
 
-  // timer countdown for game.
+  codeQuestion++ ;
+  setupquestion(codeQuestion, questionBox);
+
+  
+  
+}
+startBtn.addEventListener("click", playquiz);
+questionBox.addEventListener("click", reviewAnswer);
+function playquiz() {
+}
+
+ // questionBox.addEventListener("click", reviewAnswer);
+
+// timer countdown for game.
   // questionBox.innerHTML ="hourglass";
 
-  if (hourglass < 0) {
-    clearInterval(x);
-    document.getElementById("hourglass").innerHTML = "expired";
-  }
-  {
-    1000;
-  }
+  // if (hourglass < 0) {
+  //   clearInterval(x);
+  //   document.getElementById("hourglass").innerHTML = "expired";
+  // }
+  // {
+  //   1000;
+ 
 
-  function playquiz() {
+  // function playquiz() {
     //  var newscore = localStorage.getItem(start);
     //     time.textContent = hourglass;
-  }
+ 
 
-  startBtn.addEventListener("click", playquiz);
-  questionBox.addEventListener("click", reviewAnswer);
-}
+
+  
