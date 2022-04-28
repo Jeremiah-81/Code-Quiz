@@ -40,7 +40,7 @@ var timeEl = document.querySelector("#time");
 var hourglass = 60;
 var countDown = queryArray.length * 15;
 var timerInterval;
-var score = 0;
+var score = 25;
 var codeQuestion = 0;
 
 function startTime() {
@@ -114,7 +114,7 @@ function reviewAnswer(event) {
     hourglass -= 5;
     time.append(rightAnswer);
   }
-
+// this generates the next question.
   codeQuestion++ ;
   setupquestion(codeQuestion, questionBox);
 
@@ -125,6 +125,9 @@ startBtn.addEventListener("click", playquiz);
 questionBox.addEventListener("click", reviewAnswer);
 function playquiz() {
 }
+
+//write comments below.
+
 
  // questionBox.addEventListener("click", reviewAnswer);
 
