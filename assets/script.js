@@ -74,7 +74,13 @@ function setupquestion(qNumber, qContainer) {
   qContainer.innerHTML = "";
   var queryquestion = document.createElement("p");
   var decisionsList = document.createElement("ol");
+    if(qNumber > queryArray.length) {
+    clearInterval(timerInterval)
+    }
+   qContainer.append(endgame);
+   return;
 
+   
   queryquestion.textContent = queryArray[qNumber].question;
   qContainer.append(queryquestion);
   for (var i = 0; i < queryArray[qNumber].decisions.length; i++) {
