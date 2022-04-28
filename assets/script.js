@@ -44,7 +44,7 @@ var score = 25;
 var codeQuestion = 0;
 
 function startTime() {
-  var timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
     hourglass--;
     timeEl.textContent = hourglass + "-SECONDS";
 
@@ -74,12 +74,10 @@ function setupquestion(qNumber, qContainer) {
   qContainer.innerHTML = "";
   var queryquestion = document.createElement("p");
   var decisionsList = document.createElement("ol");
-    if(qNumber > queryArray.length) {
+    if(qNumber == queryArray.length) {
     clearInterval(timerInterval)
+    return;
     }
-   qContainer.append(endgame);
-   return;
-
    
   queryquestion.textContent = queryArray[qNumber].question;
   qContainer.append(queryquestion);
