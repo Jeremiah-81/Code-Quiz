@@ -86,14 +86,9 @@ h2 {
   background: linear-gradient(45deg, rgba(0, 0, 255) 0%, rgb(0, 255, 255) 100%);
 }
 
-
 .wronganswer {
   background: linear-gradient(45deg, rgba(255, 0, 0) 0%, rgb(255, 0, 64) 100%);
 }
-
-
-
-
 
 @media screen and (max-width: 500px) {
   .decisions {
