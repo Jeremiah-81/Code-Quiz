@@ -9,16 +9,28 @@
 </head>
 <body> 
     <main class="container">    
-        <div id= "homescreen" class="flex-column flex-center"> 
+        <div id= "game" class="flex-column flex-center"> 
            <h1>Start Game</h1> 
            <button id="startbutton" class="btn" type="button">play</button> 
-           <a href="highscores.html" id="highscore-btn"            
+           <a href="highscores.html" id="highscore-btn"  
+           <a href="highscores.js"  id="highscore-btn" 
             class="btn">High Score</a>
             <div id= "question-box"></div>
             <p> timer: <span id="time"></span></p>
-            <div id="progressBar">
-                <div id="progressBarFull"></div>
-            </div>
+            <!-- trying this here -->
+            <div  id="hud">
+                <div class="hud-item">
+                    <p id="progressText" class="hud-prefix">
+                        Score
+                      </p>
+                      <h1 class="hud-main-text" id="Score">
+                        0
+                    <!-- <div id="progressBar">
+                    <div id="progressBarFull"></div>    -->
+                    </div>
+                    </div>                           
+                </div>  
+             </div>
          </div>    
         </div>
 

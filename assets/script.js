@@ -43,13 +43,26 @@ var queryArray = [
     answer: "Slacks",
   }];
 
+var SCORE = 125
+var MAX_QUESTIONS = 5
+
+// Tring this
+startGame = () => {
+  if(availableQuestion.length === 0 || questionBox > MAX_QUESTIONS) {
+    localStorage.setItem('mostRecentScore', score)
+
+    return window.localStorage.assign(index.html)
+  }
+}
+
 var startBtn = document.getElementById("startbutton");
 var questionBox = document.querySelector("#question-box");
+var scoreText = document.querySelector("#score");
 var timeEl = document.querySelector("#time");
 var hourglass = 60;
 var countDown = queryArray.length * 15;
 var timerInterval;
-var score = 25;
+var score = 0;
 var codeQuestion = 0;
 
 function startTime() {
@@ -59,21 +72,22 @@ function startTime() {
 
     if (hourglass === 0) {
       clearInterval(timerInterval);
-      score();
+      score(25);
     }
   }, 1000);
 }
 
-// game start wors good
+// game start works good
 //make loop for other questions and score keep
 startBtn.addEventListener("click", gameStart);
 
-// when player begins the game.
+//the game starts here.
 function gameStart() {
   startBtn.style.display = "none";
   console.log("gamestarted");
+  // zero is the first question 
   codeQuestion = 0;
-  score = 0;
+  score = 25;
   startTime();
   setupquestion(codeQuestion, questionBox);
 }
@@ -106,7 +120,7 @@ function setupquestion(qNumber, qContainer) {
   queryquestion.textContent = "";
   for (var i = 0; i < queryArray[codeQuestion].decisions.length; i++) {
     queryquestion.textContent = queryArray[codeQuestion].question;
-    //  var playersChoice = document.createElement("li");
+    // var playersChoice = document.createElement("li");
     playersChoice.textContent = queryArray[codeQuestion].decisions[i];
     decisionsList.append(playersChoice);
 
@@ -115,6 +129,7 @@ function setupquestion(qNumber, qContainer) {
     codeQuestion++;
   }
 }
+
 // question appers and player answers.
 function reviewAnswer(event) {
   var playerAnswer = event.target.textContent;
@@ -132,11 +147,27 @@ function reviewAnswer(event) {
   codeQuestion++;
   setupquestion(codeQuestion, questionBox);
 }
+
+
 startBtn.addEventListener("click", playquiz);
 questionBox.addEventListener("click", reviewAnswer);
 function playquiz() {}
 
+
+
+// End of game
+
+    
+
+
+
 //write comments below.
+
+// function score () {
+//   playersChoice = decisions(function () {
+//   points = localStorage.getItem("score");
+//   })
+// }
 
 // questionBox.addEventListener("click", reviewAnswer);
 
