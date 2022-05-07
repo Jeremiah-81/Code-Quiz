@@ -1,6 +1,7 @@
+var locall =  JSON.parse(localStorage.getItem("mostRecentScore")) || []
+for (let i = 0; i < locall.length; i++) {
+    locall[i].score
+    locall[i].initials
+}
 
 
-
-const score = localStorage.get(score)
-
-<a href="highscores.html" id="highscore"

@@ -23,7 +23,7 @@ var queryArray = [
       "/*This is a comment*/",
       "<This is a comment>",
       "--This is a comment--",
-      "#This is a comment#",  
+      "#This is a comment#",
     ],
     answer: "/*This is a comment*/",
   },
@@ -34,26 +34,24 @@ var queryArray = [
   },
   {
     question: "You make a visit to Garak buisness what do you leave with?",
-    decisions: [
-      "Tool",
-      "Food",
-      "Slacks",
-      "Machine parts",  
-    ],
+    decisions: ["Tool", "Food", "Slacks", "Machine parts"],
     answer: "Slacks",
-  }];
+  },
+];
 
-var SCORE = 125
-var MAX_QUESTIONS = 5
 
+// var players_name = initials
+var max_questions = 5;
+var points = JSON.parse(localStorage.getItem("mostRecentScore")) || [];
 // Tring this
 startGame = () => {
-  if(availableQuestion.length === 0 || questionBox > MAX_QUESTIONS) {
-    localStorage.setItem('mostRecentScore', score)
+  if (availableQuestion.length === 0 || questionBox > max_questions) {
+    locall.push({ score: hourglass, initials: "player initials" });
+    localStorage.setItem("mostRecentScore", points);
 
-    return window.localStorage.assign(index.html)
+    return window.localStorage.assign(index.html);
   }
-}
+};
 
 var startBtn = document.getElementById("startbutton");
 var questionBox = document.querySelector("#question-box");
@@ -62,7 +60,7 @@ var timeEl = document.querySelector("#time");
 var hourglass = 60;
 var countDown = queryArray.length * 15;
 var timerInterval;
-var score = 0;
+// var score = 0;
 var codeQuestion = 0;
 
 function startTime() {
@@ -85,14 +83,19 @@ startBtn.addEventListener("click", gameStart);
 function gameStart() {
   startBtn.style.display = "none";
   console.log("gamestarted");
-  // zero is the first question 
+  // zero is the first question
   codeQuestion = 0;
   score = 25;
   startTime();
   setupquestion(codeQuestion, questionBox);
 }
-var questionBox = document.getElementById("question-box");
 
+function endGame() {
+  qContainer.innerHTML = "Game Over";
+  cleraInterval(timerInterval);
+}
+
+var questionBox = document.getElementById("question-box");
 function setupquestion(qNumber, qContainer) {
   qContainer.innerHTML = "";
   var queryquestion = document.createElement("p");
@@ -116,18 +119,6 @@ function setupquestion(qNumber, qContainer) {
   qContainer.append(decisionsList);
   return;
   // start timer here
-
-  queryquestion.textContent = "";
-  for (var i = 0; i < queryArray[codeQuestion].decisions.length; i++) {
-    queryquestion.textContent = queryArray[codeQuestion].question;
-    // var playersChoice = document.createElement("li");
-    playersChoice.textContent = queryArray[codeQuestion].decisions[i];
-    decisionsList.append(playersChoice);
-
-    questionBox.append(queryquestion);
-    questionBox.append(decisionsList);
-    codeQuestion++;
-  }
 }
 
 // question appers and player answers.
@@ -143,21 +134,15 @@ function reviewAnswer(event) {
     hourglass -= 5;
     time.append(rightAnswer);
   }
+  
   // this generates the next question.
   codeQuestion++;
   setupquestion(codeQuestion, questionBox);
 }
 
-
 startBtn.addEventListener("click", playquiz);
 questionBox.addEventListener("click", reviewAnswer);
 function playquiz() {}
-
-
-
-// End of game
-
-    
 
 
 
@@ -184,3 +169,15 @@ function playquiz() {}
 // function playquiz() {
 //  var newscore = localStorage.getItem(start);
 //     time.textContent = hourglass;
+
+// queryquestion.textContent = "";
+// for (var i = 0; i < queryArray[codeQuestion].decisions.length; i++) {
+// queryquestion.textContent = queryArray[codeQuestion].question;
+
+// var playersChoice = document.createElement("li");
+// playersChoice.textContent = queryArray[codeQuestion].decisions[i];
+// decisionsList.append(playersChoice);
+
+// questionBox.append(queryquestion);
+// questionBox.append(decisionsList);
+// codeQuestion++;
