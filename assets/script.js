@@ -116,23 +116,6 @@ function setupquestion(qNumber, qContainer) {
   // start timer here
 }
 
-function endGame() {
-  // qContainer.innerHTML = "Game Over";
-  cleraInterval(timerInterval);
-  localStorage.setItem("hourglass", hourglass);
-
-  transferScore();
-}
-
-function transferScore() {
-  var points = localStorage.getItem("hourglass");
-  console.log("points")
-  qContainer.innerHTML = "gameover, highscore" = points
-}
-
-
-
-
 // question appers and player answers.
 function reviewAnswer(event) {
   var playerAnswer = event.target.textContent;
