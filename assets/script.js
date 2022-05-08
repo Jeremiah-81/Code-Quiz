@@ -60,7 +60,6 @@ var timeEl = document.querySelector("#time");
 var hourglass = 60;
 var countDown = queryArray.length * 15;
 var timerInterval;
-// var score = 0;
 var codeQuestion = 0;
 
 function startTime() {
@@ -90,10 +89,6 @@ function gameStart() {
   setupquestion(codeQuestion, questionBox);
 }
 
-function endGame() {
-  qContainer.innerHTML = "Game Over";
-  cleraInterval(timerInterval);
-}
 
 var questionBox = document.getElementById("question-box");
 function setupquestion(qNumber, qContainer) {
@@ -120,6 +115,23 @@ function setupquestion(qNumber, qContainer) {
   return;
   // start timer here
 }
+
+function endGame() {
+  // qContainer.innerHTML = "Game Over";
+  cleraInterval(timerInterval);
+  localStorage.setItem("hourglass", hourglass);
+
+  transferScore();
+}
+
+function transferScore() {
+  var points = localStorage.getItem("hourglass");
+  console.log("points")
+  qContainer.innerHTML = "gameover, highscore" = points
+}
+
+
+
 
 // question appers and player answers.
 function reviewAnswer(event) {
@@ -148,36 +160,16 @@ function playquiz() {}
 
 //write comments below.
 
-// function score () {
-//   playersChoice = decisions(function () {
-//   points = localStorage.getItem("score");
-//   })
+// function endGame() {
+//   // qContainer.innerHTML = "Game Over";
+//   cleraInterval(timerInterval);
+//   localStorage.setItem("hourglass", hourglass);
+
+//   transferScore();
 // }
 
-// questionBox.addEventListener("click", reviewAnswer);
-
-// timer countdown for game.
-// questionBox.innerHTML ="hourglass";
-
-// if (hourglass < 0) {
-//   clearInterval(x);
-//   document.getElementById("hourglass").innerHTML = "expired";
+// function transferScore() {
+//   var points = localStorage.getItem("hourglass");
+//   console.log("points")
+//   qContainer.innerHTML = "gameover, highscore" = points
 // }
-// {
-//   1000;
-
-// function playquiz() {
-//  var newscore = localStorage.getItem(start);
-//     time.textContent = hourglass;
-
-// queryquestion.textContent = "";
-// for (var i = 0; i < queryArray[codeQuestion].decisions.length; i++) {
-// queryquestion.textContent = queryArray[codeQuestion].question;
-
-// var playersChoice = document.createElement("li");
-// playersChoice.textContent = queryArray[codeQuestion].decisions[i];
-// decisionsList.append(playersChoice);
-
-// questionBox.append(queryquestion);
-// questionBox.append(decisionsList);
-// codeQuestion++;
