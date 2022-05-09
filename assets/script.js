@@ -55,7 +55,7 @@ startGame = () => {
 
 var startBtn = document.getElementById("startbutton");
 var questionBox = document.querySelector("#question-box");
-var scoreText = document.querySelector("#score");
+// var scoreText = document.querySelector("#score");
 var timeEl = document.querySelector("#time");
 var hourglass = 60;
 var countDown = queryArray.length * 15;
@@ -87,8 +87,20 @@ function gameStart() {
   score = 25;
   startTime();
   setupquestion(codeQuestion, questionBox);
-}
 
+ //store the players score in local storage
+  document.getElementById('points').addEventListener("click", function() {
+    window.localStorage.setItem(points);
+    updatepoints();
+  });
+
+  function updatepoints() {
+    var values = [], keys = Object.keys(localStorage), i = keys.length;
+    while (i--) { values.push( localStorage.getItem(keys[i]) ); }
+    document.getElementById('ls-currently').textContent = values;
+  }
+}
+  
 
 var questionBox = document.getElementById("question-box");
 function setupquestion(qNumber, qContainer) {
@@ -150,6 +162,10 @@ function playquiz() {}
 
 //   transferScore();
 // }
+
+
+// this should display scores onto high scores page
+
 
 // function transferScore() {
 //   var points = localStorage.getItem("hourglass");
