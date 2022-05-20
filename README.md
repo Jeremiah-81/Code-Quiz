@@ -8,7 +8,7 @@ I created this game to test and compare with others for a fun and easy learning 
 
 ## Screenshots
 
-https://raw.githubusercontent.com/Jeremiah-81/Work-Day-Scheduler/main/assets/05-third-party-apis-homework-demo.gif
+https://raw.githubusercontent.com/Jeremiah-81/Code-Quiz/main/assets/04-web-apis-homework-demo.gif
 
 ## How to use
 

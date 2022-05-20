@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
- 
- body {
-     background-color: rgb(106, 90, 205)
-    } 
+
+body {
+  background-color: rgb(106, 90, 205);
+}
 
 * {
   box-sizing: border-box;
@@ -13,7 +13,7 @@ h1 {
   font-size: 6rem;
   color: #fff;
   margin-bottom: 5rem;
-} 
+}
 
 h2 {
   font-size: 4.5rem;
@@ -48,19 +48,18 @@ h2 {
 .text-center {
   text-align: center;
 }
- 
- .btn {
+
+.btn {
   font-size: 3rem;
   padding: 3rem 0;
   width: 30 rem;
-  text-align:center;
+  text-align: center;
   margin-bottom: 1rem;
   text-decoration: none;
   color: rgb(255, 0, 255);
   background: linear-gradient(90deg, rgb(60, 60, 60) 0%, rgb(0, 0, 0) 100%);
   border-radius: 4px;
-} 
-
+}
 
 .btn:hover {
   cursor: pointer;
@@ -104,7 +103,7 @@ h2 {
 .hud-main-text {
   text-align: center;
 }
-  
+
 @media screen and (max-width: 700px) {
   .decisions {
     min-width: 30rem;

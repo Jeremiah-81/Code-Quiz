@@ -39,20 +39,20 @@ var queryArray = [
   },
 ];
 
-
 // var players_name = initials
 var max_questions = 5;
-var points = JSON.parse(localStorage.getItem("mostRecentScore")) || [];
+var points = JSON.parse(localStorage.getItem("New Score")) || [];
 // Tring this
 startGame = () => {
   if (availableQuestion.length === 0 || questionBox > max_questions) {
-    locall.push({ score: hourglass, initials: "player initials" });
+    points.push({ score: hourglass, initials: "player initials" });
     localStorage.setItem("mostRecentScore", points);
 
     return window.localStorage.assign(index.html);
   }
 };
 
+var inputHighscore = document.getElementById("hud");
 var startBtn = document.getElementById("startbutton");
 var questionBox = document.querySelector("#question-box");
 // var scoreText = document.querySelector("#score");
@@ -88,19 +88,27 @@ function gameStart() {
   startTime();
   setupquestion(codeQuestion, questionBox);
 
- //store the players score in local storage
-  document.getElementById('points').addEventListener("click", function() {
-    window.localStorage.setItem(points);
-    updatepoints();
+  //store the players score in local storage
+  document.getElementById("points").addEventListener("click", function () {
+    var playerInitials = document.querySelector("input").value;
+    console.log(playerInitials);
+    points.push({ score: hourglass, initials: playerInitials });
+    localStorage.setItem("mostRecentScore", JSON.stringify(points));
+    // updatepoints();
   });
-
-  function updatepoints() {
-    var values = [], keys = Object.keys(localStorage), i = keys.length;
-    while (i--) { values.push( localStorage.getItem(keys[i]) ); }
-    document.getElementById('ls-currently').textContent = values;
-  }
 }
-  
+document.getElementById("highscore-btn").addEventListener("click", function () {
+  updatepoints();
+});
+function updatepoints() {
+  var values = [],
+    keys = Object.keys(localStorage),
+    i = keys.length;
+  while (i--) {
+    values.push(localStorage.getItem(keys[i]));
+  }
+  document.getElementById("ls-currently").textContent = values;
+}
 
 var questionBox = document.getElementById("question-box");
 function setupquestion(qNumber, qContainer) {
@@ -121,6 +129,7 @@ function setupquestion(qNumber, qContainer) {
     playersChoice.textContent = queryArray[qNumber].decisions[i];
     playerBtnChoice.append(playersChoice);
     decisionsList.append(playerBtnChoice);
+    console.log(i);
   }
 
   qContainer.append(decisionsList);
@@ -132,6 +141,7 @@ function setupquestion(qNumber, qContainer) {
 function reviewAnswer(event) {
   var playerAnswer = event.target.textContent;
   var rightAnswer = document.createElement("p");
+  rightAnswer.textContent = "";
   if (playerAnswer === queryArray[codeQuestion].answer) {
     rightAnswer.textContent = "Right answer!";
     time.append(rightAnswer);
@@ -141,17 +151,19 @@ function reviewAnswer(event) {
     hourglass -= 5;
     time.append(rightAnswer);
   }
-  
+  var input = document.createElement("input");
   // this generates the next question.
   codeQuestion++;
+  if (codeQuestion == 5) {
+    console.log("gamefinished");
+    inputHighscore.append(input);
+  }
   setupquestion(codeQuestion, questionBox);
 }
 
 startBtn.addEventListener("click", playquiz);
 questionBox.addEventListener("click", reviewAnswer);
 function playquiz() {}
-
-
 
 //write comments below.
 
@@ -163,9 +175,7 @@ function playquiz() {}
 //   transferScore();
 // }
 
-
 // this should display scores onto high scores page
-
 
 // function transferScore() {
 //   var points = localStorage.getItem("hourglass");
