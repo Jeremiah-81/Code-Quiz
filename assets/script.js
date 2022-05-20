@@ -165,20 +165,3 @@ startBtn.addEventListener("click", playquiz);
 questionBox.addEventListener("click", reviewAnswer);
 function playquiz() {}
 
-//write comments below.
-
-// function endGame() {
-//   // qContainer.innerHTML = "Game Over";
-//   cleraInterval(timerInterval);
-//   localStorage.setItem("hourglass", hourglass);
-
-//   transferScore();
-// }
-
-// this should display scores onto high scores page
-
-// function transferScore() {
-//   var points = localStorage.getItem("hourglass");
-//   console.log("points")
-//   qContainer.innerHTML = "gameover, highscore" = points
-// }
